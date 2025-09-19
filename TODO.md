@@ -1,0 +1,8 @@
+- [.] Import turtle and math modules
+- [.] Define original points for advanced Kolam pattern (3x3 grid)
+- [.] Apply 45-degree rotation to all points
+- [.] Draw dots at rotated positions
+- [.] Draw outer loop connecting points 0-2-8-6-0
+- [.] Draw inner loop connecting points 1-5-7-3-1
+- [.] Draw lines from center (point 4) to corners (0,2,6,8)
+- [.] Set up turtle display and run
