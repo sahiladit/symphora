@@ -122,10 +122,35 @@ def kolam_design(dot_rows=3, dot_cols=3, spacing=60):
                 else:
                      newz = t.pos()
                      t.penup()
-                     t.setx(newz[0]-60)                     
+                     t.setx(newz[0]-120)                     
                      t.pendown()
                      for _ in range(0, 360, step):
                         t.circle(radius, step)
+
+                     newz = t.pos()
+                     t.penup()
+                     t.setx(newz[0]+60)
+                     t.sety(newz[1]+60)                     
+                     t.pendown()
+                     for _ in range(0, 360, step):
+                        t.circle(radius, step)
+
+                     newz = t.pos()
+                     t.penup()
+                     t.setx(newz[0])
+                     t.sety(newz[1]-120)                     
+                     t.pendown()
+                     for _ in range(0, 360, step):
+                        t.circle(radius, step)
+                    
+                     newz = t.pos()
+                     t.penup()
+                     t.setx(newz[0]+60)
+                     t.sety(newz[1]+60)                     
+                     t.pendown()
+                     for _ in range(0, 360, step):
+                        t.circle(radius, step)
+                
             t.penup()
 
 
@@ -134,7 +159,6 @@ def kolam_design(dot_rows=3, dot_cols=3, spacing=60):
 
 if __name__ == "__main__":
     kolam_design(dot_rows=3, dot_cols=3, spacing=60)
-
 
 
 
