@@ -1,6 +1,35 @@
 import turtle
 import math
 
+def arc_from_cell_center(t, cx, cy, r, start_angle):
+    t.penup()
+    t.goto(cx, cy)
+    t.setheading(start_angle)
+    t.forward(r)
+    t.right(90)
+    t.pendown()
+    t.circle(r, 90)  # quarter-circle
+    t.penup()
+
+# Sikku loops for a single 2x2 cell
+def pattern_sikku_cell(t, ox, oy, spacing, color="#222"):
+    t.color(color)
+    r = spacing / 2
+    # four corners
+    arc_from_cell_center(t, ox, oy, r, 0)
+    arc_from_cell_center(t, ox, oy, r, 90)
+    arc_from_cell_center(t, ox, oy, r, 180)
+    arc_from_cell_center(t, ox, oy, r, 270)
+
+# Draw Sikku for all 2x2 cells in 3x3 grid
+def pattern_sikku_all(t, rows, cols, spacing, ox, oy, color="#222"):
+    for i in range(rows-1):
+        for j in range(cols-1):
+            cx = ox + j*spacing + spacing/2
+            cy = oy - i*spacing - spacing/2
+            pattern_sikku_cell(t, cx, cy, spacing, color)
+
+
 
 def kolam_design(dot_rows=3, dot_cols=3, spacing=60):
     """
@@ -145,7 +174,9 @@ def kolam_design(dot_rows=3, dot_cols=3, spacing=60):
                      t.pendown()
                      for _ in range(0, 360, step):
                         t.circle(radius, step)
-                   
+                    
+                     pattern_sikku_all(t, dot_rows, dot_cols, spacing, start_x, start_y, "#222")
+            
             t.penup()
 
 
